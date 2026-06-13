@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProConnect Feed</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <nav>
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="#" class="nav-link active">🏠 Home</a></li>
+        <li><a href="#" class="nav-link">👤 Profile</a></li>
+        <li><a href="#" class="nav-link">⚙️ Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="header">
+      <h1>ProConnect</h1>
+
+      <div class="controls">
+        <select id="filterRole">
+          <option value="all">All Roles</option>
+          <option value="Engineer">Engineer</option>
+          <option value="Designer">Designer</option>
+          <option value="Manager">Manager</option>
+        </select>
+
+        <select id="sortPosts">
+          <option value="recent">Most Recent</option>
+          <option value="likes">Most Liked</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <section id="feed" class="feed"></section>
+    </main>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

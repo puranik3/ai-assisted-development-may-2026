@@ -1,0 +1,18 @@
+{
+    "name": "proconnect-feed",
+    "version": "1.0.0",
+    "description": "Professional networking feed web application with role-based filtering and social engagement features",
+
+    "type": "module",
+    "keywords": [
+        "feed",
+        "social",
+        "networking",
+        "dom-manipulation",
+        "localStorage",
+        "es6",
+        "javascript"
+    ],
+    "author": "",
+    "license": "ISC"
+}

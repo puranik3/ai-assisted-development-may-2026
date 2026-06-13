@@ -1,0 +1,3 @@
+__Batch__: Professional Certificate in Generative AI and Agents for Software Development - May'26
+
+__Session participant(s)__: Anand Kumar, Aisha M Sidee, Chitra Rajesh, Luis Solis, Elan Barram, Heilyn Fuselier, Raghu, Sumana Pingali, Scott Bugby, Edith DeCourcy, Sambasiva R Karnati, Jay Jagatheesan, Kiran Pavuluru, Zubair Ahmed, Max Aubry, Pankaj Chhura, Anand Thanki, Nilanjana Mukherjee, Jim McCabe, Yolanda Hunt, Sudhakar Tatavarty, Mary Manjeera Bellamkonda, Aditya Rathour, Timothy Sanders, Fabiano Suet Da Silva, Vijay Goswami, and William R. DeCourcy, Jr.

@@ -1,0 +1,121 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background-color: #f3f2ef;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 0.5rem;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: #666;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #f3f2ef;
+  color: #0a66c2;
+}
+
+.nav-link.active {
+  background-color: #0a66c2;
+  color: white;
+  font-weight: bold;
+}
+
+.main-content {
+  margin-left: 220px;
+}
+
+.header {
+  background-color: #0a66c2;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls select {
+  margin-left: 0.5rem;
+}
+
+.feed {
+  padding: 1rem;
+}
+
+.post {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-author {
+  font-weight: bold;
+}
+
+.post-role {
+  font-size: 0.85rem;
+  color: gray;
+}
+
+.post-actions {
+  margin-top: 0.5rem;
+}
+
+.post-actions button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.post-actions button:hover {
+  background-color: #f3f2ef;
+}
+
+.post-actions button.liked {
+  background-color: #0a66c2;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #0a66c2;
+}
