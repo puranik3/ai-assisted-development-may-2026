@@ -1,0 +1,20 @@
+# Ignore all files in the "node_modules" directory
+*/**/node_modules/
+# Ignore all files with the ".log" extension
+*/**/*.log
+# Ignore all files in the "dist", "build" directory
+*/**/dist/
+*/**/build/
+# Ignore secret files
+*/**/*.env
+*/**/*.key
+*/**/*.pem
+*/**/secrets/
+
+*/**/private/*
+*/**/plans/
+*/**/plan.md
+*/**/plan.pdf
+
+.DS_Store
+*/**/.DS_Store
