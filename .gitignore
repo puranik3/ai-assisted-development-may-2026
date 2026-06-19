@@ -1,9 +1,11 @@
 private/
 */**/private/
+plans/
+*/**/plans/
 plan.md
 plan.pdf
-**/*/plan.md
-**/*/plan.pdf
+*/**/plan.md
+*/**/plan.pdf
 
 # Logs
 logs
