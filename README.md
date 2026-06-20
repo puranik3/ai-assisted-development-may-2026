@@ -153,3 +153,10 @@ __MySQL is preferred when:__
 
 ---
 
+__Week 3 - Building the Backend: Express.js and REST APIs__
+
+### Question 1
+How to save the plan generatd by the agent into a file?
+
+### Question 2
+How to get the LLM to review code such that it reviews across the codebase and not just a single file? It is important to get a holistic review of the codebase and not just a single file, to ensure that the code does not have duplications etc. and is following the best practices across the codebase.
