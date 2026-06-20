@@ -12,6 +12,7 @@
 */**/secrets/
 
 */**/private/*
+!private/tryouts/
 */**/plans/
 */**/plan.md
 */**/plan.pdf
