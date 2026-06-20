@@ -17,12 +17,7 @@ const router = express.Router();
  * Note: Paths here are relative. The "/api/subreddits" prefix
  * is already applied in src/app.js via: app.use('/api/subreddits', subredditRoutes)
  */
-// http://localhost:3000/api/subreddits
-router.get( '/', getAllSubreddits );
-router.post( '/', createSubreddit );
 
-// http://localhost:3000/api/subreddits/6a36acd175f18946a9f46baa
-// req.params.id -> 6a36acd175f18946a9f46baa
-router.get( '/:id', getSubredditWithThreads );
+// YOUR CODE HERE
 
 export default router;

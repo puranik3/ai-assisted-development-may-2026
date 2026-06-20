@@ -44,7 +44,7 @@ export const createSubreddit = async (req, res) => {
       });
     }
 
-    return res.status( 200 ).json({
+    return res.status( 201 ).json({
       success: true,
       message: `Subreddit created successfully!`,
       data: createdSubreddit
@@ -59,5 +59,25 @@ export const createSubreddit = async (req, res) => {
 };
 
 export const getSubredditWithThreads = async (req, res) => {
-  // YOUR CODE HERE
+  try {
+    const result = await fetchSubredditWithThreads(req.params.id);
+
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: "Subreddit not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Subreddit and its threads fetched successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server error while fetching subreddit with threads",
+    });
+  }
 };
