@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "607f1f77bcf86cd799440001",
+    "name": "programming",
+    "description": "A community for sharing programming tips, tutorials, and code reviews",
+    "author": "507f1f77bcf86cd799439001",
+    "createdAt": "2026-04-23T10:00:00Z"
+  },
+  {
+    "_id": "607f1f77bcf86cd799440002",
+    "name": "webdev",
+    "description": "Web development discussions, frameworks, and best practices",
+    "author": "507f1f77bcf86cd799439002",
+    "createdAt": "2026-04-26T11:30:00Z"
+  },
+  {
+    "_id": "607f1f77bcf86cd799440003",
+    "name": "javascript",
+    "description": "Everything about JavaScript, Node.js, and frontend libraries",
+    "author": "507f1f77bcf86cd799439003",
+    "createdAt": "2026-04-29T09:15:00Z"
+  },
+  {
+    "_id": "607f1f77bcf86cd799440004",
+    "name": "databases",
+    "description": "Database design, optimization, and management discussions",
+    "author": "507f1f77bcf86cd799439004",
+    "createdAt": "2026-05-02T14:00:00Z"
+  },
+  {
+    "_id": "607f1f77bcf86cd799440005",
+    "name": "devops",
+    "description": "DevOps, CI/CD, cloud infrastructure, and deployment strategies",
+    "author": "507f1f77bcf86cd799439005",
+    "createdAt": "2026-05-05T10:45:00Z"
+  },
+  {
+    "_id": "607f1f77bcf86cd799440006",
+    "name": "learning",
+    "description": "Learning resources, courses, and educational content for developers",
+    "author": "507f1f77bcf86cd799439006",
+    "createdAt": "2026-05-08T13:20:00Z"
+  }
+]

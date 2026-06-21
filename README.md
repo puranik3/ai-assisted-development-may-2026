@@ -160,3 +160,8 @@ How to save the plan generatd by the agent into a file?
 
 ### Question 2
 How to get the LLM to review code such that it reviews across the codebase and not just a single file? It is important to get a holistic review of the codebase and not just a single file, to ensure that the code does not have duplications etc. and is following the best practices across the codebase.
+
+___
+
+__Sun, Jun 21, Extra Session__
+- Using UI from / links to other sites as context when creating UI for an app

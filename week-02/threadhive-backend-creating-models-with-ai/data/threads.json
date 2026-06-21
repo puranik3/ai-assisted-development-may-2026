@@ -1,0 +1,222 @@
+[
+  {
+    "_id": "707f1f77bcf86cd799441001",
+    "title": "Best practices for async/await in JavaScript",
+    "content": "I've been working with async/await for a while now, but I want to know the best practices. What are some patterns you follow?",
+    "author": "507f1f77bcf86cd799439002",
+    "subreddit": "607f1f77bcf86cd799440003",
+    "upvotes": 145,
+    "downvotes": 3,
+    "voteCount": 142,
+    "createdAt": "2026-05-20T08:30:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441002",
+    "title": "React Hooks vs Class Components in 2026",
+    "content": "What's the current consensus on using hooks vs class components? Should we still write class components?",
+    "author": "507f1f77bcf86cd799439004",
+    "subreddit": "607f1f77bcf86cd799440003",
+    "upvotes": 89,
+    "downvotes": 12,
+    "voteCount": 77,
+    "createdAt": "2026-05-18T14:45:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441003",
+    "title": "Getting started with Node.js",
+    "content": "I'm new to Node.js. What resources would you recommend for learning the basics?",
+    "author": "507f1f77bcf86cd799439001",
+    "subreddit": "607f1f77bcf86cd799440003",
+    "upvotes": 67,
+    "downvotes": 2,
+    "voteCount": 65,
+    "createdAt": "2026-05-22T10:15:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441004",
+    "title": "MongoDB indexing strategies for performance",
+    "content": "We're seeing slow queries on our MongoDB instance. What indexing strategies should we implement?",
+    "author": "507f1f77bcf86cd799439005",
+    "subreddit": "607f1f77bcf86cd799440004",
+    "upvotes": 112,
+    "downvotes": 5,
+    "voteCount": 107,
+    "createdAt": "2026-05-21T11:20:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441005",
+    "title": "SQL vs NoSQL: Making the right choice",
+    "content": "How do you decide between SQL and NoSQL databases for your projects?",
+    "author": "507f1f77bcf86cd799439003",
+    "subreddit": "607f1f77bcf86cd799440004",
+    "upvotes": 156,
+    "downvotes": 8,
+    "voteCount": 148,
+    "createdAt": "2026-05-19T09:00:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441006",
+    "title": "Docker for local development",
+    "content": "Does anyone use Docker for local development? I'm trying to set it up for my team.",
+    "author": "507f1f77bcf86cd799439007",
+    "subreddit": "607f1f77bcf86cd799440005",
+    "upvotes": 98,
+    "downvotes": 4,
+    "voteCount": 94,
+    "createdAt": "2026-05-23T15:30:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441007",
+    "title": "CI/CD pipeline setup with GitHub Actions",
+    "content": "I'm setting up a CI/CD pipeline using GitHub Actions. What are the essential steps?",
+    "author": "507f1f77bcf86cd799439006",
+    "subreddit": "607f1f77bcf86cd799440005",
+    "upvotes": 134,
+    "downvotes": 6,
+    "voteCount": 128,
+    "createdAt": "2026-05-17T13:45:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441008",
+    "title": "Building scalable web applications",
+    "content": "What architectural patterns do you use for building scalable web applications?",
+    "author": "507f1f77bcf86cd799439008",
+    "subreddit": "607f1f77bcf86cd799440001",
+    "upvotes": 178,
+    "downvotes": 9,
+    "voteCount": 169,
+    "createdAt": "2026-05-20T10:00:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441009",
+    "title": "CSS-in-JS vs CSS Modules",
+    "content": "I'm torn between CSS-in-JS and CSS Modules. What are the pros and cons?",
+    "author": "507f1f77bcf86cd799439009",
+    "subreddit": "607f1f77bcf86cd799440002",
+    "upvotes": 45,
+    "downvotes": 7,
+    "voteCount": 38,
+    "createdAt": "2026-05-24T08:20:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441010",
+    "title": "REST API design principles",
+    "content": "What are the key principles for designing RESTful APIs?",
+    "author": "507f1f77bcf86cd79943900a",
+    "subreddit": "607f1f77bcf86cd799440002",
+    "upvotes": 201,
+    "downvotes": 11,
+    "voteCount": 190,
+    "createdAt": "2026-05-16T12:30:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441011",
+    "title": "Testing in JavaScript: Jest vs Mocha",
+    "content": "Which testing framework do you prefer and why?",
+    "author": "507f1f77bcf86cd799439001",
+    "subreddit": "607f1f77bcf86cd799440003",
+    "upvotes": 123,
+    "downvotes": 8,
+    "voteCount": 115,
+    "createdAt": "2026-05-25T09:45:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441012",
+    "title": "Machine learning libraries for Node.js",
+    "content": "Are there good ML libraries available for Node.js?",
+    "author": "507f1f77bcf86cd799439002",
+    "subreddit": "607f1f77bcf86cd799440001",
+    "upvotes": 87,
+    "downvotes": 5,
+    "voteCount": 82,
+    "createdAt": "2026-05-26T14:15:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441013",
+    "title": "Error handling best practices",
+    "content": "What's your approach to error handling in production applications?",
+    "author": "507f1f77bcf86cd799439003",
+    "subreddit": "607f1f77bcf86cd799440001",
+    "upvotes": 145,
+    "downvotes": 4,
+    "voteCount": 141,
+    "createdAt": "2026-05-27T10:30:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441014",
+    "title": "GraphQL vs REST for modern APIs",
+    "content": "When should you use GraphQL over REST?",
+    "author": "507f1f77bcf86cd799439004",
+    "subreddit": "607f1f77bcf86cd799440002",
+    "upvotes": 167,
+    "downvotes": 13,
+    "voteCount": 154,
+    "createdAt": "2026-05-28T11:00:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441015",
+    "title": "Microservices vs Monolithic architecture",
+    "content": "What factors should influence the choice between microservices and monolithic architecture?",
+    "author": "507f1f77bcf86cd799439005",
+    "subreddit": "607f1f77bcf86cd799440001",
+    "upvotes": 189,
+    "downvotes": 15,
+    "voteCount": 174,
+    "createdAt": "2026-05-29T13:20:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441016",
+    "title": "Getting into DevOps: A beginner's guide",
+    "content": "I want to transition into DevOps. What skills should I learn first?",
+    "author": "507f1f77bcf86cd799439006",
+    "subreddit": "607f1f77bcf86cd799440006",
+    "upvotes": 156,
+    "downvotes": 7,
+    "voteCount": 149,
+    "createdAt": "2026-05-30T09:15:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441017",
+    "title": "Top online courses for web development",
+    "content": "What are the best online courses for learning web development in 2026?",
+    "author": "507f1f77bcf86cd799439007",
+    "subreddit": "607f1f77bcf86cd799440006",
+    "upvotes": 203,
+    "downvotes": 12,
+    "voteCount": 191,
+    "createdAt": "2026-05-31T15:45:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441018",
+    "title": "Security best practices for web applications",
+    "content": "What are the top security practices everyone should implement?",
+    "author": "507f1f77bcf86cd799439008",
+    "subreddit": "607f1f77bcf86cd799440001",
+    "upvotes": 234,
+    "downvotes": 10,
+    "voteCount": 224,
+    "createdAt": "2026-06-01T10:20:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441019",
+    "title": "Kubernetes in production: Lessons learned",
+    "content": "What are the most important lessons you've learned running Kubernetes in production?",
+    "author": "507f1f77bcf86cd79943900a",
+    "subreddit": "607f1f77bcf86cd799440005",
+    "upvotes": 178,
+    "downvotes": 8,
+    "voteCount": 170,
+    "createdAt": "2026-06-02T12:00:00Z"
+  },
+  {
+    "_id": "707f1f77bcf86cd799441020",
+    "title": "Caching strategies for high-traffic applications",
+    "content": "What caching strategies do you use for applications with high traffic?",
+    "author": "507f1f77bcf86cd799439001",
+    "subreddit": "607f1f77bcf86cd799440004",
+    "upvotes": 145,
+    "downvotes": 6,
+    "voteCount": 139,
+    "createdAt": "2026-06-03T14:30:00Z"
+  }
+]

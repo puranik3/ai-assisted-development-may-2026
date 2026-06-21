@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "507f1f77bcf86cd799439001",
+    "name": "Alex Johnson",
+    "email": "alex.johnson@example.com",
+    "password": "hashed_password_1",
+    "createdAt": "2026-04-22T10:30:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439002",
+    "name": "Sarah Chen",
+    "email": "sarah.chen@example.com",
+    "password": "hashed_password_2",
+    "createdAt": "2026-04-25T14:15:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439003",
+    "name": "Michael Rodriguez",
+    "email": "michael.rodriguez@example.com",
+    "password": "hashed_password_3",
+    "createdAt": "2026-04-28T08:45:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439004",
+    "name": "Emma Thompson",
+    "email": "emma.thompson@example.com",
+    "password": "hashed_password_4",
+    "createdAt": "2026-05-01T11:20:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439005",
+    "name": "David Kim",
+    "email": "david.kim@example.com",
+    "password": "hashed_password_5",
+    "createdAt": "2026-05-04T09:00:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439006",
+    "name": "Jessica Martinez",
+    "email": "jessica.martinez@example.com",
+    "password": "hashed_password_6",
+    "createdAt": "2026-05-07T15:30:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439007",
+    "name": "James Wilson",
+    "email": "james.wilson@example.com",
+    "password": "hashed_password_7",
+    "createdAt": "2026-05-10T12:45:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439008",
+    "name": "Lisa Anderson",
+    "email": "lisa.anderson@example.com",
+    "password": "hashed_password_8",
+    "createdAt": "2026-05-13T10:15:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439009",
+    "name": "Robert Taylor",
+    "email": "robert.taylor@example.com",
+    "password": "hashed_password_9",
+    "createdAt": "2026-05-16T13:50:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd79943900a",
+    "name": "Olivia Brown",
+    "email": "olivia.brown@example.com",
+    "password": "hashed_password_10",
+    "createdAt": "2026-05-19T16:20:00Z"
+  }
+]
