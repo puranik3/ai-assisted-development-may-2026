@@ -1,0 +1,129 @@
+:root {
+  --header-height: 60px;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background-color: #f3f2ef;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: var(--header-height);
+  width: 250px;
+  height: calc(100vh - var(--header-height));
+  background-color: #0a66c2;
+  color: white;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: white;
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left-color: white;
+  font-weight: bold;
+}
+
+.main-content {
+  margin-left: 250px;
+  margin-top: var(--header-height);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  box-sizing: border-box;
+  background-color: #0a66c2;
+  color: white;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 101;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.controls select {
+  margin-left: 0.5rem;
+}
+
+.feed {
+  padding: 1rem;
+}
+
+.post {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-author {
+  font-weight: bold;
+}
+
+.post-role {
+  font-size: 0.85rem;
+  color: gray;
+}
+
+.post-actions {
+  margin-top: 0.5rem;
+}
+
+.post-actions button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.post-actions button:hover {
+  background-color: #f3f2ef;
+}
+
+.post-actions button.liked {
+  background-color: #0a66c2;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #0a66c2;
+}
