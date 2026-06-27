@@ -5,7 +5,12 @@ let server = null;
 export async function startServer() {
   try {
     const port = process.env.PORT || 3000;
-    server = app.listen(port, () => {
+    server = app.listen(port, (err) => {
+      if (err) {
+        console.error("Error starting server:", err);
+        process.exit(1);
+      }
+      
       console.log(`Server running at http://localhost:${port}`);
     });
   } catch (error) {
