@@ -510,7 +510,27 @@ Step 3: “Review the generated code for duplication and missed reuse opportunit
 
 That usually works better than one large generation prompt.
 
-___
+---
 
 __Sun, Jun 21, Extra Session__
 - Using UI from / links to other sites as context when creating UI for an app
+
+---
+
+__Week 4 - Building the Backend: Express.js and REST APIs (Part 2)__
+
+### Question 1
+Can custom agents use other custom agents and agents installed as VSCode extensions?
+
+_Answer_: Yes, custom agents can call other custom agents and agents installed as VSCode extensions, provided they expose an API or interface for interaction. This allows for modular and reusable agent design.
+
+__To be explored__
+
+### Question 2
+What are the similarities and differences between custom agents and skills?
+
+_Answer_: Custom agents and skills are both components that extend the capabilities of AI systems, but they serve different purposes and have distinct characteristics.
+
+__To be explored__
+
+---
