@@ -161,6 +161,355 @@ How to save the plan generatd by the agent into a file?
 ### Question 2
 How to get the LLM to review code such that it reviews across the codebase and not just a single file? It is important to get a holistic review of the codebase and not just a single file, to ensure that the code does not have duplications etc. and is following the best practices across the codebase.
 
+_Answer_: To get a **holistic AI code review**, treat it as a **repository-level review process**, not a file-level prompt.
+
+## 1. Use the assistant in “workspace/codebase/agent” mode
+
+Do not ask from an isolated file tab. Use a tool/mode that can search the whole workspace.
+
+For example, VS Code Copilot agents can use semantic search, text search, grep, file search, usages, directory listing, and file reading to gather context across the workspace. They can also use `#codebase` to force semantic codebase search. ([Visual Studio Code][1])
+
+So instead of:
+
+> Review this file.
+
+Ask:
+
+> Review this change in the context of the whole repository. First inspect the project structure, related modules, existing patterns, tests, and similar implementations. Do not limit the review to the currently open file.
+
+## 2. Make the assistant build a codebase map first
+
+A good prompt should force this sequence:
+
+1. Identify app architecture.
+2. Find entry points, routes, services, models, utilities, shared components.
+3. Find existing patterns for similar features.
+4. Compare the current code against those patterns.
+5. Only then produce review comments.
+
+Example prompt:
+
+```text
+Perform a holistic codebase review.
+
+Before reviewing individual files:
+1. Map the project structure.
+2. Identify major layers: routes/controllers/components/services/models/utils/config/tests.
+3. Find existing implementations similar to this change.
+4. Check whether the new code duplicates existing logic, bypasses established abstractions, or introduces inconsistent patterns.
+5. Review affected call sites, tests, config, error handling, logging, security, and naming.
+
+For each issue, provide:
+- severity
+- file path
+- evidence from the codebase
+- why it matters
+- suggested fix
+
+Do not restrict yourself to the active file or diff.
+```
+
+## 3. Add repository-level AI instructions
+
+For Copilot, put review rules in `.github/copilot-instructions.md`. GitHub supports repository-wide and path-specific custom instructions for Copilot; repository-wide instructions live in `.github/copilot-instructions.md`, while path-specific ones can live under `.github/instructions/**/*.instructions.md`. ([GitHub Docs][2])
+
+Example:
+
+```md
+# Code Review Instructions
+
+When reviewing or generating code:
+
+1. Always search the repository for existing utilities, services, components, hooks, validators, models, and helpers before suggesting new ones.
+2. Prefer reuse over creating new abstractions.
+3. Check whether similar logic already exists elsewhere.
+4. Review changes against project architecture, not just local correctness.
+5. Check affected tests, routes, API contracts, types, config, error handling, logging, and security implications.
+6. Mention file paths when referring to existing patterns.
+7. Flag duplication, inconsistent naming, inconsistent error handling, missing tests, weak typing, and unnecessary new dependencies.
+```
+
+For other tools, use the equivalent:
+
+```text
+AGENTS.md
+CLAUDE.md
+.cursor/rules
+.github/copilot-instructions.md
+```
+
+The exact filename depends on the assistant.
+
+## 4. Ask for “related-code search” explicitly
+
+This is very important.
+
+Use prompts like:
+
+```text
+Before reviewing this file, search the codebase for similar implementations and list them.
+```
+
+```text
+Find all places where this pattern already exists. Then tell me whether this change is consistent or duplicative.
+```
+
+```text
+Check whether there is already a utility/service/component that should be reused instead of this new code.
+```
+
+This prevents the common LLM mistake of reviewing only the visible code.
+
+## 5. Use PR-level review, not only editor review
+
+For real review, ask the assistant to review:
+
+```text
+- the full diff
+- files outside the diff that are affected
+- related tests
+- related types/interfaces
+- related configuration
+- duplicate implementations
+```
+
+GitHub Copilot can review pull requests, but its review comments are only comments; they do not approve, request changes, or block merging. ([GitHub Docs][2]) So use it as an additional reviewer, not the final gate.
+
+## 6. Give it a checklist
+
+For holistic review, ask for these categories:
+
+```text
+Review across:
+- architecture consistency
+- duplicate logic
+- existing abstraction reuse
+- naming consistency
+- error handling
+- logging
+- validation
+- security
+- performance
+- test coverage
+- API contract changes
+- backward compatibility
+- dependency usage
+- dead code
+- config/env handling
+```
+
+## 7. Use static tools alongside AI
+
+AI is good at reasoning, but bad at exhaustive detection. Pair it with:
+
+```text
+- linting
+- type checking
+- tests
+- dependency analysis
+- duplicate-code detection
+- security scanning
+```
+
+Then ask the assistant:
+
+```text
+Here are the lint/test/duplicate-code/security results. Review the codebase holistically and explain what should be fixed first.
+```
+
+## Best practical workflow
+
+Use this flow:
+
+```text
+1. Open the full repository in the AI-enabled IDE.
+2. Ensure codebase indexing is complete.
+3. Add repository instructions.
+4. Ask the assistant to map the codebase.
+5. Ask it to find similar implementations.
+6. Ask it to review the PR/change against those patterns.
+7. Ask for a severity-ranked report.
+8. Run tests/static tools.
+9. Ask AI to interpret the results and suggest refactoring.
+```
+
+The most important rule is this:
+
+> Never ask “review this file.” Ask “review this change against the whole codebase, and first find related code.”
+
+### Question 3:
+How to get the coding assistant to take care about not duplicating code, creating useful utilities where appropriate and being able to reuse it while *generating* code?
+
+_Answer_: Use **generation instructions** that force the assistant to do a **reuse scan before writing code**.
+
+The problem is that many coding assistants default to:
+
+> “Generate the code needed for this file/task.”
+
+You need to change the flow to:
+
+> “First inspect the codebase for existing patterns/utilities, then generate code only after deciding what to reuse or extract.”
+
+## 1. Add a standing rule in project instructions
+
+Put this in something like:
+
+```text
+.github/copilot-instructions.md
+AGENTS.md
+CLAUDE.md
+.cursor/rules
+```
+
+Example:
+
+```md
+# Code Generation Rules
+
+Before generating new code:
+
+1. Search the codebase for existing utilities, services, components, hooks, validators, constants, types, and helpers that solve the same or similar problem.
+2. Reuse existing code when possible.
+3. Do not create a new utility/helper unless:
+   - the logic is repeated or likely to be reused,
+   - it has a clear single responsibility,
+   - it belongs naturally in an existing shared folder/module.
+4. If similar code exists but is not reusable as-is, prefer refactoring it into a shared utility instead of duplicating it.
+5. Follow existing project naming, folder structure, error handling, logging, validation, and testing patterns.
+6. Before writing code, summarize:
+   - what existing code was found,
+   - what will be reused,
+   - what new code will be created,
+   - why a utility is or is not needed.
+7. After generating code, check whether the implementation duplicated any existing logic.
+```
+
+## 2. Prompt the assistant in two phases
+
+Do not directly say:
+
+```text
+Add feature X.
+```
+
+Instead say:
+
+```text
+Add feature X.
+
+Before writing code:
+1. Search the codebase for similar implementations.
+2. Identify reusable utilities/services/components.
+3. Tell me whether this should reuse existing code, refactor existing code, or create a new utility.
+4. Only then generate the code.
+```
+
+This is much more effective because it prevents immediate local code generation.
+
+## 3. Ask for a “reuse plan” before code
+
+Example prompt:
+
+```text
+I need to implement <feature>.
+
+First create a reuse plan:
+- existing files/modules that are relevant
+- logic that can be reused
+- logic that should be extracted into utilities
+- new files, if any
+- files that should not be touched
+
+After that, generate the implementation.
+```
+
+This forces the assistant to think at the codebase level.
+
+## 4. Give it utility-creation rules
+
+Many assistants over-create utilities. So define when a utility is appropriate.
+
+Good instruction:
+
+```text
+Create a utility only when the logic is:
+- repeated in 2 or more places, or
+- clearly domain-neutral, or
+- likely to be reused soon, or
+- complex enough that naming it improves readability.
+
+Do not create a utility for one-off simple logic.
+```
+
+This avoids both extremes:
+
+```text
+Bad: duplicate everything
+Bad: create tiny useless helpers for everything
+Good: extract stable, reusable, named behavior
+```
+
+## 5. Ask it to modify existing code, not just add new code
+
+For duplication control, this phrase is important:
+
+```text
+Do not only add new code. If existing code should be refactored for reuse, update it.
+```
+
+Otherwise the assistant may create a new helper while leaving older duplicated logic untouched.
+
+## 6. Use a final self-check prompt
+
+After code generation, ask:
+
+```text
+Now review your own changes against the whole codebase.
+
+Check specifically:
+- Did you duplicate existing logic?
+- Did you create unnecessary utilities?
+- Did you miss an existing abstraction?
+- Are naming and folder choices consistent?
+- Are tests updated in the same style as existing tests?
+```
+
+## Best reusable prompt
+
+Use this when generating code:
+
+```text
+Implement <feature> in this codebase.
+
+Before writing code:
+1. Inspect the codebase for similar features, utilities, services, components, types, constants, validators, and tests.
+2. Identify what should be reused.
+3. Identify whether any existing logic should be extracted into a shared utility.
+4. Avoid duplicating logic.
+5. Follow existing architecture, naming, folder structure, error handling, validation, and testing patterns.
+6. Explain your implementation plan briefly.
+7. Then generate the code.
+
+After generating code:
+1. Check again for duplication.
+2. Mention any new utility created and why it was justified.
+3. Mention any existing code reused or refactored.
+```
+
+## Practical habit
+
+For important changes, use this sequence:
+
+```text
+Step 1: “Explore the codebase and propose a reuse plan. Do not write code yet.”
+
+Step 2: “Now implement the plan.”
+
+Step 3: “Review the generated code for duplication and missed reuse opportunities.”
+```
+
+That usually works better than one large generation prompt.
+
 ___
 
 __Sun, Jun 21, Extra Session__
