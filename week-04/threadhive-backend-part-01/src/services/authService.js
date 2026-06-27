@@ -23,7 +23,7 @@ export const register = async ( { name, email, password } ) => {
 };
 
 export const login = async ( { email, password } ) => {
-  const existingUser = await User.findOne({ email });
+  const existingUser = await User.findOne({ email }).select("+password");
 
   if (!existingUser) {
     throw createAppError("Bad credentials", 401);
