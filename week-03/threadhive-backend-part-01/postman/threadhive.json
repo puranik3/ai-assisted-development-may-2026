@@ -1,0 +1,345 @@
+{
+  "info": {
+    "name": "ThreadHive API - Threads",
+    "description": "Collection for ThreadHive backend /api/threads endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Threads",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has success property\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.success).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Response has data array\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.be.an('array');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/threads",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "threads"
+          ]
+        },
+        "description": "Fetch all threads from the database"
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Threads - Filtered by Subreddit",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has success property\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.success).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Response has filtered data array\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.be.an('array');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/threads?subreddit={{subreddit_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "threads"
+          ],
+          "query": [
+            {
+              "key": "subreddit",
+              "value": "{{subreddit_id}}"
+            }
+          ]
+        },
+        "description": "Fetch threads filtered by subreddit ID. Replace {{subreddit_id}} with an actual subreddit ID"
+      },
+      "response": []
+    },
+    {
+      "name": "Create New Thread",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201 (Created)\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test(\"Response has success property set to true\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.success).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Response contains created thread data\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.have.property('_id');",
+              "    pm.expect(jsonData.data).to.have.property('title');",
+              "    pm.expect(jsonData.data).to.have.property('content');",
+              "});",
+              "",
+              "pm.test(\"Save thread ID for later use\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.environment.set(\"thread_id\", jsonData.data._id);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"New Discussion Topic\",\n  \"content\": \"This is a new thread with interesting content to discuss.\",\n  \"author\": \"{{user_id}}\",\n  \"subreddit\": \"{{subreddit_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/threads",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "threads"
+          ]
+        },
+        "description": "Create a new thread. Requires title, content, author, and subreddit ID"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Thread by ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has success property set to true\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.success).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Response contains thread data with populated references\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.have.property('_id');",
+              "    pm.expect(jsonData.data).to.have.property('title');",
+              "    pm.expect(jsonData.data).to.have.property('author');",
+              "    pm.expect(jsonData.data).to.have.property('subreddit');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/threads/{{thread_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "threads",
+            "{{thread_id}}"
+          ]
+        },
+        "description": "Get a specific thread by ID with populated author and subreddit references"
+      },
+      "response": []
+    },
+    {
+      "name": "Update Thread",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has success property set to true\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.success).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Response contains updated thread data\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.have.property('_id');",
+              "    pm.expect(jsonData.data).to.have.property('title');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Thread Title\",\n  \"content\": \"Updated thread content with new information.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/threads/{{thread_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "threads",
+            "{{thread_id}}"
+          ]
+        },
+        "description": "Update an existing thread. Provide at least one field to update (title, content, upvotes, downvotes, etc.)"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Thread",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has success property set to true\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.success).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Response contains deleted thread data\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.have.property('_id');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/threads/{{thread_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "threads",
+            "{{thread_id}}"
+          ]
+        },
+        "description": "Delete a thread by ID"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string",
+      "description": "Base URL for ThreadHive API"
+    },
+    {
+      "key": "thread_id",
+      "value": "",
+      "type": "string",
+      "description": "Thread ID placeholder - gets populated after creating a thread"
+    },
+    {
+      "key": "user_id",
+      "value": "",
+      "type": "string",
+      "description": "User ID - replace with an actual user ID from your database"
+    },
+    {
+      "key": "subreddit_id",
+      "value": "",
+      "type": "string",
+      "description": "Subreddit ID - replace with an actual subreddit ID from your database"
+    }
+  ]
+}
