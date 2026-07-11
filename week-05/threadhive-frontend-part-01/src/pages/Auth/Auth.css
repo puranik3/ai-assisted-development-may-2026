@@ -6,6 +6,34 @@
   box-sizing: border-box;
 }
 
+.auth-container.auth-split-layout {
+  padding: 0;
+  justify-content: stretch;
+  min-height: 100vh;
+}
+
+.auth-form-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+.auth-image-section {
+  flex: 1;
+  overflow: hidden;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .auth-image-section {
+    display: block;
+  }
+}
+
 .auth-box {
   background-color: white;
   padding: 30px;
@@ -17,10 +45,31 @@
   box-sizing: border-box;
 }
 
+.auth-form-section .auth-box {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  padding: 0;
+  max-width: 350px;
+}
+
 .auth-box h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
+}
+
+.auth-form-section .auth-box h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 25px;
 }
 
 .auth-box input {
@@ -32,6 +81,13 @@
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 16px;
+}
+
+.auth-form-section .auth-box input {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 12px 14px;
+  margin-bottom: 20px;
 }
 
 .auth-box button {
@@ -46,8 +102,49 @@
   font-size: 16px;
 }
 
+.auth-form-section .auth-box button[type="submit"] {
+  background-color: #ffc107;
+  color: #333;
+  font-weight: 600;
+  padding: 14px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.auth-form-section .auth-box button[type="submit"]:hover {
+  background-color: #ffb300;
+}
+
 .auth-box button:hover {
   background-color: rgb(12, 12, 240);
+}
+
+.auth-social-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 12px;
+  font-weight: 600;
+  border: 2px solid #ddd;
+  background-color: white;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  border-color: #999;
+  background-color: #fafafa;
 }
 
 .auth-box label {
@@ -60,4 +157,10 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.auth-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

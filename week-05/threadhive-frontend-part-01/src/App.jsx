@@ -9,15 +9,28 @@ import "./App.css"
 
 function App() {
     const [page, setPage] = useState('login');
+    const [ isAuthenticated, setIsAuthenticated ] = useState( false );
+
+    const handleResetPassword = (data) => {
+        console.log('Password reset:', data);
+        // Password reset logic will go here
+        // For now, just log the data
+    };
 
     return (
         <div className="app-layout">
-            <Header onNavigate={setPage} />
+            <Header onNavigate={setPage} isAuthenticated={isAuthenticated} />
 
-            <ResetPassword onResetPassword={( formDetails ) => console.log( formDetails )} />
+
 
             {
-                page === 'login' ? <Login /> : <Register />
+                page === 'login' && <Login />
+            }
+            {
+                page === 'register' && <Register />
+            }
+            {
+                page === 'reset-password' && <ResetPassword onResetPassword={handleResetPassword} />
             }
 
             {/* {

@@ -1,10 +1,15 @@
 import "./Header.css"
 
-function Header({ onNavigate }) {
-  const isAuthenticated = false;
+function Header({ onNavigate, isAuthenticated }) {
+  const handleLogout = () => {
+    // Logout logic will be handled by parent component
+    // For now, navigate to login
+    onNavigate('login');
+  };
 
-   // Dummy authentication variable. Will be eventually replaced with actual authentication logic.
-   // Todo: define respective functions
+  const handleResetPassword = () => {
+    onNavigate('reset-password');
+  };
 
   return (
     <header className="header">
@@ -15,13 +20,13 @@ function Header({ onNavigate }) {
       {
         isAuthenticated ? (
           <>
-            <button>Reset Password</button>
-            <button>Logout</button>
+            <button onClick={handleResetPassword}>Reset Password</button>
+            <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
           <>
             <button onClick={() => onNavigate('login')}>Login</button>
-            <button onClick={() => onNavigate('register')}  >Register</button>
+            <button onClick={() => onNavigate('register')}>Register</button>
           </>
         )
       }

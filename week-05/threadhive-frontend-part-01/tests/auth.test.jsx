@@ -24,7 +24,7 @@ describe('Auth Components', () => {
       expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
       expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
       expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
-      expect(screen.getByRole('button', { name: /register/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument();
     });
 
     it('logs the form data on submit', async () => {
@@ -34,7 +34,7 @@ describe('Auth Components', () => {
       await userEvent.type(screen.getByLabelText(/name/i), 'JohnDoe');
       await userEvent.type(screen.getByLabelText(/email/i), 'john@example.com');
       await userEvent.type(screen.getByLabelText(/password/i), 'password123');
-      await userEvent.click(screen.getByRole('button', { name: /register/i }));
+      await userEvent.click(screen.getByRole('button', { name: /submit/i }));
 
       expect(logSpy).toHaveBeenCalledWith('Register Attempt:', {
         name: 'JohnDoe',
