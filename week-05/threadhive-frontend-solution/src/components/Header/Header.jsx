@@ -17,7 +17,7 @@ function Header({ onNavigate }) {
 
   const handleLogout = () => {
     console.log('Logout clicked');
-    onNavigate('login'); 
+    onNavigate('login');
   };
 
   return (
