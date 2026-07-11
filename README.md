@@ -534,3 +534,24 @@ _Answer_: Custom agents and skills are both components that extend the capabilit
 __To be explored__
 
 ---
+
+__Week 5 - Building the Frontend: React and Component Design__
+
+### Question 1
+If tests break, what AI workflow can we follow to know if the tests are broken because the code change caused a regression, or because the test itself is not updated to match the updated code? How can we get the AI to help us with this? _Suggestion_: The source-of-truth should be the PRD, and test cases should be generated based on the PRD. If the code changes, the AI can help us to update the test cases based on the PRD. If the code change is not aligned with the PRD, then we can raise a question to the product team to clarify the requirement.
+
+_Answer_: TODO
+
+### Question 2
+How can we get the AI to help us with e2e testing? Can we get the AI to generate e2e tests for us? How can we get the AI to help us with debugging e2e tests? _Suggestion_: Use Playwright and integrate it with Claude agent to help with e2e testing and debugging. 
+
+_Answer_: TODO
+
+### Question 3
+Comparison of Angular, React, Vue.
+
+_Answer_: TODO
+
+### Question 4
+Other feedback received from the participants.
+_Answer_: TODOG
