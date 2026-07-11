@@ -8,7 +8,24 @@ function Header({ onNavigate }) {
 
   return (
     <header className="header">
-      {/* Todo: Header Component */}
+      <div className="header-left">
+        <h1 className="title">ThreadHive</h1>
+      </div>
+      <div className="header-right">
+      {
+        isAuthenticated ? (
+          <>
+            <button>Reset Password</button>
+            <button>Logout</button>
+          </>
+        ) : (
+          <>
+            <button onClick={() => onNavigate('login')}>Login</button>
+            <button onClick={() => onNavigate('register')}  >Register</button>
+          </>
+        )
+      }
+      </div>
     </header>
   );
 }
