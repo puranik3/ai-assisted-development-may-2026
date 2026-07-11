@@ -8,7 +8,7 @@ function Login() {
     // UI is derived from state (variables created within the component), and...
     // ...props (like function arguments passed from Parent component)
 
-    let [ email, setEmail ] = useState('');
+    let [ email, setEmail ] = useState('xyz@example.com');
     const [ password, setPassword ] = useState('');
 
     const handleSubmit = e => {
@@ -27,6 +27,7 @@ function Login() {
                         name="email"
                         type="email"
                         placeholder="Email"
+                        value={email}
                         onChange={e => setEmail( e.target.value )}
                         required
                     />
@@ -36,6 +37,7 @@ function Login() {
                         name="password"
                         type="password"
                         placeholder="Password"
+                        value={password}
                         onChange={e => setPassword( e.target.value )}
                         required
                     />
