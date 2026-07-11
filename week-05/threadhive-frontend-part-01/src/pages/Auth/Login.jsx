@@ -8,20 +8,18 @@ function Login() {
     // UI is derived from state (variables created within the component), and...
     // ...props (like function arguments passed from Parent component)
 
-    // useState() -> [ variable, setVariableFunction ]
-    const [ message, setMessage ] = useState('Hello, world');
+    let [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log('Login Attempt:');
-        // setForm({ email: '', password: '' });
-        setMessage('Login Attempted');
+        console.log('Login Attempt:', { email, password} );
     };
 
     return (
         <div className="auth-container">
             <div className="auth-box">
-                <h2>Login - {message}</h2>
+                <h2>Login</h2>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
                     <input
@@ -29,6 +27,7 @@ function Login() {
                         name="email"
                         type="email"
                         placeholder="Email"
+                        onChange={e => setEmail( e.target.value )}
                         required
                     />
                     <label htmlFor="password">Password</label>
@@ -37,6 +36,7 @@ function Login() {
                         name="password"
                         type="password"
                         placeholder="Password"
+                        onChange={e => setPassword( e.target.value )}
                         required
                     />
                     <button type="submit">Login</button>

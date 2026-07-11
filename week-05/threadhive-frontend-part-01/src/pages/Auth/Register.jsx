@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import "./Auth.css";
 
 function Register() {
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [form, setForm] = useState(
+    {
+      name: '',
+      email: '',
+      password: ''
+    }
+  );
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
