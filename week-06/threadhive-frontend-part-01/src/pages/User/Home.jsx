@@ -14,7 +14,12 @@ export default function Home() {
   }, []);
 
   if (selectedThread) {
-    return <ThreadPage thread={selectedThread} goBack={() => setSelectedThread(null)} />;
+    return (
+      <ThreadPage
+        thread={selectedThread}
+        goBack={() => setSelectedThread(null)}
+      />
+    );
   }
 
   return (

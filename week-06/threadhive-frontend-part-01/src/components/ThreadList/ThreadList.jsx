@@ -34,6 +34,21 @@ export default function ThreadList({ threads, onSelect }) {
                     countClassName="vote-count"
                   />
                 </div>
+
+                {/* Thread Info */}
+                <div className="thread-content-section">
+                  <div className="thread-header">
+                    <h5 className="thread-title">{t.title}</h5>
+                    <span className="subreddit-badge">r/{t.subreddit}</span>
+                  </div>
+                  <p className="thread-text">{t.content}</p>
+                  <button
+                    className="view-thread-btn"
+                    onClick={() => onSelect(t)}
+                  >
+                    💬 View Comments
+                  </button>
+                </div>
               </div>
             </div>
           )
