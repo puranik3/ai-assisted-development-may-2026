@@ -3,7 +3,13 @@ import { Button } from "react-bootstrap";
 export default function VoteButtons({ count, onUpvote, onDownvote, btnClassName, countClassName }) {
   return (
     <>
-      <Button variant="light" size="sm" onClick={onUpvote} aria-label="Upvote" className={btnClassName}>
+      <Button
+        variant="light"
+        size="sm"
+        onClick={onUpvote}
+        aria-label="Upvote"
+        className={btnClassName}
+      >
         <i className="bi bi-arrow-up"></i>
       </Button>
       <div className={countClassName}>{count}</div>
