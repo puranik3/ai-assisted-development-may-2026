@@ -1,0 +1,7 @@
+To run the CSS-in-JS libraries example, we first have to install the latest version of the "Styled Components" package using npm or yarn.
+
+1. Stop the react app execution in your terminal using Ctrl+C keys.
+2. Install the package using the following command on your terminal - 
+npm install styled-components@latest
+3. Start the react app execution again in your terminal using the following command -
+npm start

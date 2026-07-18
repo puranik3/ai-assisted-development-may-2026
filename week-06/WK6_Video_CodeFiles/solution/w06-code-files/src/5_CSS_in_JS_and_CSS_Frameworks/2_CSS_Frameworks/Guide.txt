@@ -1,0 +1,13 @@
+To run the CSS Frameworks example, we first have to install the "react-bootstrap" and "bootstrap" packages.
+
+1. Stop the react app execution in your terminal using Ctrl+C keys.
+
+2. Install the package using the following commands on your terminal - 
+npm install react-bootstrap
+npm install bootstrap
+
+3. In the index.js file add the following import statement -
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+4. Start the react app execution again in your terminal using the following command -
+npm start
